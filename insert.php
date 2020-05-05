@@ -12,7 +12,7 @@ if(!empty($username) || !empty($email) || !empty($password) || !empty($phone) ||
 	$dbPassword = "";
 	$dbname = "mydb";
 	
-	//create connection
+	
 	$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
 	
 	if(mysqli_connect_error()) {
@@ -22,7 +22,7 @@ if(!empty($username) || !empty($email) || !empty($password) || !empty($phone) ||
 		$SELECT = "SELECT email From emp_register Where email = ? Limit 1";
 		$INSERT = "INSERT Into emp_register (username, email, password, phone, address) values(?, ?, ?, ?, ?)";
 		
-		//prepare statement
+		
 		$stmt = $conn->prepare($SELECT);
 		$stmt->bind_param("s", $email);
 		$stmt->execute();
